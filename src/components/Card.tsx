@@ -1,17 +1,26 @@
 import { useRef } from "react";
-import image from "/filter.webp"
 
 interface cardInterface {
     title: string;
     content: string;
     color: string;
+    imageSrc: string;
     borderBackground: string;
     level: number;
     totalSeries: number;
     seriesPosition: number;
 }
 
-function Card({title, content, color, borderBackground , level, seriesPosition, totalSeries} : cardInterface ) {
+function Card({
+    title,
+    content,
+    color,
+    imageSrc,
+    borderBackground,
+    level,
+    seriesPosition,
+    totalSeries
+} : cardInterface ) {
     const boundingRef = useRef<DOMRect|null>(null);
     return (
         <div
@@ -51,8 +60,8 @@ function Card({title, content, color, borderBackground , level, seriesPosition, 
             <div className="card-body rounded-xl items-center text-black text-center bg-white p-0">
                 <figure className="h-full">
                 <img
-                  src={image}
-                  alt="Shoes"
+                  src={imageSrc}
+                  alt="background"
                   className="rounded-xl h-full" />
                 </figure>
                 <div className="absolute inset-0 text-black">

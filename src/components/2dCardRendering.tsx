@@ -1,5 +1,7 @@
 import { useState } from "react";
+import image from "/filter.webp";
 import Card from "./Card";
+import { dataPolitics } from "./data";
 import CardContainer from "./CardContainer";
 
 interface CardData {
@@ -10,37 +12,9 @@ interface CardData {
   level: number;
   totalSeries: number;
   seriesPosition: number;
+  imageSrc?: string
 }
 
-let cardData : [] = [];
-
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
-
-function randomTitle() {
-  const index = Math.floor(Math.random() * 6);
-  const titles = ["Absent Moon", "The Silent Teacher","Lights of Trainer", "The Names's Dreaming", "The Servant of the Sons", "Sorcerer in the Sky"]
-  return titles[index];
-}
-
-for(let i=0; i < 6; i++) {
-  cardData.push({
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rhoncus lacinia purus, et euismod lacus sodales at. Suspendisse elementum laoreet mauris, et cursus mauris feugiat maximus",
-    title: randomTitle(),
-    color: getRandomColor(),
-    borderBackground: getRandomColor(),
-    level: 2,
-    totalSeries: 6,
-    seriesPosition: i
-  });
-}
 
 function CardRendering () {
     const [borderBackground , setBorderBackground] = useState<string>("#C542D7");
@@ -92,6 +66,7 @@ function CardRendering () {
 
             <CardContainer>
               <Card
+                imageSrc={image}
                 title={title}
                 color={color}
                 content={content}
@@ -103,19 +78,21 @@ function CardRendering () {
             </CardContainer>
 
             <div className="flex flex-row gap-6 [perspective:800px]">
-              {cardData.map(({title, color, content, borderBackground, level, totalSeries, seriesPosition}) => {
+              {dataPolitics.map(({title, color, content, borderBackground, level, totalSeries, seriesPosition, imageSrc}) => {
+                console.log(imageSrc)
                 return (
                   <Card
-                  key={title}
-                  title={title}
-                  color={color}
-                  content={content}
-                  borderBackground={borderBackground}
-                  level={level}
-                  totalSeries={totalSeries}
-                  seriesPosition={seriesPosition}
+                    key={title}
+                    imageSrc={imageSrc}
+                    title={title}
+                    color={color}
+                    content={content}
+                    borderBackground={borderBackground}
+                    level={level}
+                    totalSeries={totalSeries}
+                    seriesPosition={seriesPosition}
                   />
-                );
+                  );
                 })}
               </div>
 
