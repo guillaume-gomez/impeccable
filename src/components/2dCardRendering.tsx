@@ -22,7 +22,7 @@ function CardRendering () {
     const [title , setTitle] = useState<string>("Pomyad");
     const [content , setContent] = useState<string>("Ceci est un contenu pour montrer que ca marche mdr");
     return (
-        <div className="h-screen flex flex-col gap-9 items-center justify-center p-10">
+        <div className="flex flex-col gap-9 items-center justify-center p-14">
             <div className="card bg-base-300 w-96 shadow-xl">
               <div className="card-body">
                 <h2 className="card-title">Settings</h2>

@@ -58,7 +58,7 @@ function Card({
             style={{ background: borderBackground, height: 500 }}
         >
             <div className="card-body rounded-xl items-center text-black text-center bg-white p-0">
-                <figure className="h-full">
+                <figure className="w-full h-full">
                 <img
                   src={imageSrc}
                   alt="background"
